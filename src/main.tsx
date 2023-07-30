@@ -7,6 +7,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Home, Error } from "./pages";
 import { Default } from "./layouts";
 
+import { CarQuoterProvider } from "./context/carQuoterProvider";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,6 +28,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <CarQuoterProvider>
+      <RouterProvider router={router} />
+    </CarQuoterProvider>
   </React.StrictMode>
 );
