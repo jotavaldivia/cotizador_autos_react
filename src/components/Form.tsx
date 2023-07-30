@@ -1,8 +1,8 @@
 import { CAR_BRANDS, PLANS } from "../constants";
 import { getLastTwenyYears } from "../utilities";
-
-console.log(getLastTwenyYears());
+import useCarQuoter from "../hooks/useCarQuoter";
 const Form = () => {
+  const { hanldeChangeState } = useCarQuoter();
   return (
     <>
       <form action="">
@@ -13,6 +13,7 @@ const Form = () => {
           <select
             name="marca"
             className="w-full p-3 bg-white border border-gray-200"
+            onChange={(e) => hanldeChangeState(e)}
           >
             <option value="">-- Selecciona Marca --</option>
             {CAR_BRANDS.map((brand) => (
@@ -27,8 +28,9 @@ const Form = () => {
             Año
           </label>
           <select
-            name="marca"
+            name="year"
             className="w-full p-3 bg-white border border-gray-200"
+            onChange={(e) => hanldeChangeState(e)}
           >
             <option value="">-- Selecciona Año --</option>
             {getLastTwenyYears().map((year) => (
@@ -50,6 +52,7 @@ const Form = () => {
                   name="plan"
                   value={plan.id}
                   className="mr-2"
+                  onChange={(e) => hanldeChangeState(e)}
                 />
                 {plan.name}
               </label>
