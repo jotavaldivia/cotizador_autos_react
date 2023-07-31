@@ -1,10 +1,12 @@
 export type quoterType = {
   carBrand: string;
-  year: number;
+  year: string;
   plan: string;
 };
 
 export type quoterContextType = {
-  carQuoter: Array<quoterType>;
-  setCarQuoter: (value: Array<quoterType>) => void;
+  carQuoter: quoterType;
+  setCarQuoter: (value: quoterType) => void;
+  error: boolean;
+  setError: (value: boolean) => void;
 };

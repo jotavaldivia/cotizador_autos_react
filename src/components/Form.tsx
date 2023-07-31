@@ -1,17 +1,30 @@
 import { CAR_BRANDS, PLANS } from "../constants";
 import { getLastTwenyYears } from "../utilities";
 import useCarQuoter from "../hooks/useCarQuoter";
+import { Error } from "../components";
 const Form = () => {
-  const { hanldeChangeState } = useCarQuoter();
+  const { carQuoter, hanldeChangeState, error, setError } = useCarQuoter();
+
+  const handlerSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (Object.values(carQuoter).includes("")) {
+      console.error("los campos son obligatorios");
+      setError(true);
+      return;
+    }
+    console.log("ahora si podemos cotizar", carQuoter);
+    setError(false);
+    alert("Cotizando...");
+  };
   return (
     <>
-      <form action="">
+      <form onSubmit={(e) => handlerSubmit(e)}>
         <div className="my-5">
           <label className="block mb-3 font-bold text-gray-400 uppercase">
             Marca
           </label>
           <select
-            name="marca"
+            name="carBrand"
             className="w-full p-3 bg-white border border-gray-200"
             onChange={(e) => hanldeChangeState(e)}
           >
@@ -65,6 +78,7 @@ const Form = () => {
           className="w-full bg-indigo-500 hover:bg-indigo-700 transition-colors duration-300 text-white 
           uppercase py-2 px-10 text-center rounded-lg font-bold cursor-pointer"
         />
+        {error && <Error text="Todos los campos son obligatorios" />}
       </form>
     </>
   );

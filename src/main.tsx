@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import "./global.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home, Error } from "./pages";
+import { Home, Error404 } from "./pages";
 import { Default } from "./layouts";
 
 import { CarQuoterProvider } from "./context/carQuoterProvider";
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <Error />,
+    element: <Error404 />,
   },
 ]);
 
