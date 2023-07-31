@@ -1,2 +1,2 @@
-export { default as Error } from "./Error";
+export { default as Error404 } from "./Error404";
 export * from "./Home";

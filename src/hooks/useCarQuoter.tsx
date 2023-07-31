@@ -3,7 +3,7 @@ import { CarQuoterContext } from "../context/carQuoterProvider";
 import { quoterContextType } from "../models/quoter";
 
 const useCarQuoter = () => {
-  const { carQuoter, setCarQuoter } = useContext(
+  const { carQuoter, setCarQuoter, error, setError } = useContext(
     CarQuoterContext
   ) as quoterContextType;
 
@@ -17,7 +17,7 @@ const useCarQuoter = () => {
     console.log(carQuoter);
   };
 
-  return { carQuoter, setCarQuoter, hanldeChangeState };
+  return { carQuoter, setCarQuoter, hanldeChangeState, error, setError };
 };
 
 export default useCarQuoter;
