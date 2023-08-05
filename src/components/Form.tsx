@@ -1,9 +1,9 @@
 import { CAR_BRANDS, PLANS } from "../constants";
-import { getLastTwenyYears } from "../utilities";
+import { getLastTwenyYears } from "../helpers";
 import useCarQuoter from "../hooks/useCarQuoter";
 import { Error } from "../components";
 const Form = () => {
-  const { carQuoter, hanldeChangeState, error, setError } = useCarQuoter();
+  const { carQuoter, hanldeChangeState, error, setError , quoter} = useCarQuoter();
 
   const handlerSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -14,7 +14,8 @@ const Form = () => {
     }
     console.log("ahora si podemos cotizar", carQuoter);
     setError(false);
-    alert("Cotizando...");
+    console.log(quoter())
+
   };
   return (
     <>

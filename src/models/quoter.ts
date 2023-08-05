@@ -9,4 +9,5 @@ export type quoterContextType = {
   setCarQuoter: (value: quoterType) => void;
   error: boolean;
   setError: (value: boolean) => void;
+  quoter: () => void;
 };
